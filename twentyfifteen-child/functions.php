@@ -27,3 +27,19 @@ if (!function_exists('disable_admin_bar')) {
 add_action('init','disable_admin_bar');
 
 
+//add castom post type named Products
+function create_posttype() {
+    register_post_type( 'wp_product',
+        array(
+            'labels' => array(
+                'name' => __( 'Products' ),
+                'singular_name' => __( 'Product' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'products'),
+        )
+    );
+}
+add_action( 'init', 'create_posttype' );
+
