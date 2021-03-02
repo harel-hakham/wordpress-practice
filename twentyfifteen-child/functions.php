@@ -36,6 +36,8 @@ function create_posttype() {
                 'singular_name' => __( 'Product' )
             ),
             'public' => true,
+            'taxonomies' => array('category', 'post_tag'),
+            'supports' => array('title', 'editor', 'thumbnail'),
             'has_archive' => true,
             'rewrite' => array('slug' => 'products'),
         )
