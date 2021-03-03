@@ -44,3 +44,9 @@ Text Domain: twentyfifteen child
     background-color: #666;
     color: white;
 }
+.sale{
+    color: red;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    float: right;
+}
