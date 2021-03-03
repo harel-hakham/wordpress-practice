@@ -29,7 +29,12 @@ get_header(); ?>
         $the_query = new WP_Query( $args );
         while ( $the_query->have_posts() ) : $the_query->the_post();
             $attachment_image = wp_get_attachment_image_url( get_post_thumbnail_id( $post ), 'post-thumbnail' );
-           echo "<div class=\"column\" style=\"background-color:#aaa;\">
+		    $sale_status ="";
+            $key_1_values = get_post_meta( $post->ID, '_mcf_is_on_sale' );
+           if($key_1_values[0]=='yes') {
+               $sale_status ="<span class=\"sale\">in sale </span>";
+           }
+           echo "<div class=\"column\" style=\"background-color:#aaa;\">". $sale_status."
                      <div>
                         <img src=\"".$attachment_image." \" style=\"width: 240px;height: 180px;\">
                     </div>
